@@ -54,11 +54,11 @@ FMT_ACTION=" performing a %{$limegreen%}%a${PR_RST}"
 FMT_UNSTAGED="%{$yellow%} ●"
 FMT_STAGED="%{$green%} ●"
 
-zstyle ':vcs_info:*:prompt:*' unstagedstr   "${FMT_UNSTAGED}"
-zstyle ':vcs_info:*:prompt:*' stagedstr     "${FMT_STAGED}"
-zstyle ':vcs_info:*:prompt:*' actionformats "${FMT_BRANCH}${FMT_ACTION}"
-zstyle ':vcs_info:*:prompt:*' formats       "${FMT_BRANCH}"
-zstyle ':vcs_info:*:prompt:*' nvcsformats   ""
+zstyle ":vcs_info:*:prompt:*" unstagedstr   "${FMT_UNSTAGED}"
+zstyle ":vcs_info:*:prompt:*" stagedstr     "${FMT_STAGED}"
+zstyle ":vcs_info:*:prompt:*" actionformats "${FMT_BRANCH}${FMT_ACTION}"
+zstyle ":vcs_info:*:prompt:*" formats       "${FMT_BRANCH}"
+zstyle ":vcs_info:*:prompt:*" nvcsformats   ""
 
 
 function steeef_preexec {
@@ -87,10 +87,10 @@ function steeef_precmd {
         else
             FMT_BRANCH="${PM_RST} %{$turquoise%}(%b)%u%c${PR_RST}"
         fi
-        zstyle ':vcs_info:*:prompt:*' formats       "${FMT_BRANCH}"
+        zstyle ":vcs_info:*:prompt:*" formats       "${FMT_BRANCH}"
 
-        vcs_info 'prompt'
-        PR_GIT_UPDATE=
+        vcs_info "prompt"
+        PR_GIT_UPDATE=1
     fi
 }
 add-zsh-hook precmd steeef_precmd
